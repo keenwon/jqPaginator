@@ -10,20 +10,9 @@ module.exports = function (grunt) {
 
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
-        concat: {
-            options: {
-                separator: ';'
-            },
-            dist: {
-                src: [
-                    'src/js/jqPaginator.js'
-                ],
-                dest: 'dist/<%= pkg.version %>/<%= pkg.name %>.js'
-            }
-        },
         uglify: {
             options: {
-                banner: '/*! <%= pkg.name %>-<%= pkg.version %> <%= grunt.template.today("yyyy-mm-dd HH:MM:ss") %> */\n',
+                banner: '/*! <%= pkg.name %>-<%= pkg.version %> \n * http://jqPaginator.keenwon.com\n */\n',
                 beautify: {
                     ascii_only: true
                 },
@@ -36,7 +25,7 @@ module.exports = function (grunt) {
             },
             dist: {
                 files: {
-                    'dist/<%= pkg.version %>/<%= pkg.name %>.min.js': ['<%= concat.dist.dest %>']
+                    'dist/<%= pkg.version %>/<%= pkg.name %>.min.js': ['src/js/jqPaginator.js']
                 }
             }
         },
@@ -101,7 +90,7 @@ module.exports = function (grunt) {
         }
     });
 
-    grunt.registerTask('build', ['test', 'concat', 'uglify']);
+    grunt.registerTask('build', ['test', 'uglify']);
 
     grunt.registerTask('test', ['jshint']);
 

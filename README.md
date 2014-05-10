@@ -15,3 +15,4 @@
 
     grunt build
     
+开发文件位于src目录，编译后的最终文件位于dist目录
