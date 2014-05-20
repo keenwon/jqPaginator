@@ -10,7 +10,19 @@
 
         self.init = function () {
 
-            var opts = self.options = $.extend({}, $.jqPaginator.defaultOptions, options);
+            self.options = $.extend({}, $.jqPaginator.defaultOptions, options);
+
+            self.verify();
+
+            self.extendJquery();
+
+            self.render();
+
+            self.fireEvent(this.options.currentPage);
+        };
+
+        self.verify = function () {
+            var opts = self.options;
 
             if (!opts.totalPages && !opts.totalCounts) {
                 throw new Error('[jqPaginator] totalCounts or totalPages is required');
@@ -20,7 +32,7 @@
                 throw new Error('[jqPaginator] pageSize is required');
             }
 
-            if (!opts.totalPages && opts.totalCounts && opts.pageSize) {
+            if (opts.totalCounts && opts.pageSize) {
                 opts.totalPages = Math.ceil(opts.totalCounts / opts.pageSize);
             }
 
@@ -31,12 +43,6 @@
             if (opts.totalPages < 1) {
                 throw new Error('[jqPaginator] totalPages cannot be less currentPage');
             }
-
-            self.extendJquery();
-
-            self.render();
-
-            self.fireEvent(this.options.currentPage);
         };
 
         self.extendJquery = function () {
@@ -153,6 +159,7 @@
             switch (method) {
                 case 'option':
                     self.options = $.extend({}, self.options, options);
+                    self.verify();
                     self.render();
                     break;
                 case 'destroy':

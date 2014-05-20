@@ -20,6 +20,9 @@
 开发文件位于src目录，编译后的最终文件位于dist目录
 
 ##版本更新
+####1.0.1
+option函数优化
+
 ####1.0.0  
 新增spm [https://spmjs.org/keenwon/jqPaginator/](https://spmjs.org/keenwon/jqPaginator/)   
 安装方法：
