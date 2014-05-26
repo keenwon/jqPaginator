@@ -1,6 +1,6 @@
 {
     "name": "jqPaginator",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "基于jquery的多功能分页控件",
     "dependencies": {},
     "devDependencies": {
