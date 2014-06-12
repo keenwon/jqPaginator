@@ -21,7 +21,7 @@
 
 ##版本更新
 ####1.0.2
-更好的兼容 $.paginator('#id',options) 形式的调用
+更好的兼容 `$.paginator('#id',options)` 形式的调用
 
 ####1.0.1
 option函数优化
