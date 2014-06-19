@@ -23,7 +23,8 @@
 ####1.1.0
 1、onPageChange事件接受第二个参数type，表示事件类型，可能的值为:
 - init：初始化
-- change：点击页码  
+- change：点击页码
+
 2、内置bootstrap类型的分页，不用每次都设置first，next，page等参数。
 
 ####1.0.2
