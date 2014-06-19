@@ -1,4 +1,4 @@
-#jqPaginator分页组件#
+#jqPaginator分页组件
 
 项目首页：[http://jqPaginator.keenwon.com/](http://jqPaginator.keenwon.com/)  
 问题反馈：[http://keenwon.com/1124.html](http://keenwon.com/1124.html)
@@ -20,6 +20,12 @@
 开发文件位于src目录，编译后的最终文件位于dist目录
 
 ##版本更新
+####1.1.0
+1、onPageChange事件接受第二个参数type，表示事件类型，可能的值为:
+- init：初始化
+- change：点击页码
+2、内置bootstrap类型的分页，不用每次都设置first，next，page等参数。
+
 ####1.0.2
 更好的兼容 `$.paginator('#id',options)` 形式的调用
 

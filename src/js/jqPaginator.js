@@ -14,6 +14,16 @@
 
         self.init = function () {
 
+            if (options.first || options.prev || options.next || options.last || options.page) {
+                options = $.extend({}, {
+                    first: '',
+                    prev: '',
+                    next: '',
+                    last: '',
+                    page: ''
+                }, options);
+            }
+
             self.options = $.extend({}, $.jqPaginator.defaultOptions, options);
 
             self.verify();
@@ -22,7 +32,7 @@
 
             self.render();
 
-            self.fireEvent(this.options.currentPage);
+            self.fireEvent(this.options.currentPage, 'init');
         };
 
         self.verify = function () {
@@ -155,8 +165,8 @@
             self.render();
         };
 
-        self.fireEvent = function (pageIndex) {
-            return (typeof self.options.onPageChange !== 'function') || (self.options.onPageChange(pageIndex) !== false);
+        self.fireEvent = function (pageIndex, type) {
+            return (typeof self.options.onPageChange !== 'function') || (self.options.onPageChange(pageIndex, type) !== false);
         };
 
         self.callMethod = function (method, options) {
@@ -188,7 +198,7 @@
                 }
 
                 var pageIndex = +$el.attr('jp-data');
-                if (self.fireEvent(pageIndex)) {
+                if (self.fireEvent(pageIndex, 'change')) {
                     self.switchPage(pageIndex);
                 }
             });
@@ -201,11 +211,11 @@
 
     $.jqPaginator.defaultOptions = {
         wrapper: '',
-        first: '',
-        prev: '',
-        next: '',
-        last: '',
-        page: '',
+        first: '<li class="first"><a href="javascript:;">First</a></li>',
+        prev: '<li class="prev"><a href="javascript:;">Previous</a></li>',
+        next: '<li class="next"><a href="javascript:;">Next</a></li>',
+        last: '<li class="last"><a href="javascript:;">Last</a></li>',
+        page: '<li class="page"><a href="javascript:;">{{page}}</a></li>',
         totalPages: 0,
         totalCounts: 0,
         pageSize: 0,

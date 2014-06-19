@@ -8,13 +8,10 @@
 </head>
 <body style="padding:10px;">
     <p id="p1"></p>
-    <div id="pagination1">
-
-    </div>
+    <ul class="pagination" id="pagination1"></ul>
     <p id="p2"></p>
-    <div id="pagination2">
+    <ul class="pagination" id="pagination2"></ul>
 
-    </div>
 <script type="text/javascript" src="http://cdn.staticfile.org/jquery/1.7.1/jquery.min.js"></script>
 <script type="text/javascript" src="js/jqPaginator.js"></script>
 <script type="text/javascript">
@@ -22,30 +19,19 @@
         totalPages: 100,
         visiblePages: 10,
         currentPage: 3,
-
-        wrapper:'<ul class="pagination"></ul>',
-        first: '<li class="first"><a href="javascript:void(0);">First</a></li>',
-        prev: '<li class="prev"><a href="javascript:void(0);">Previous</a></li>',
-        next: '<li class="next"><a href="javascript:void(0);">Next</a></li>',
-        last: '<li class="last"><a href="javascript:void(0);">Last</a></li>',
-        page: '<li class="page"><a href="javascript:void(0);">{{page}}</a></li>',
-        onPageChange: function (num) {
-            $('#p1').text(num);
+        onPageChange: function (num, type) {
+            $('#p1').text(type + '：' + num);
         }
     });
     $.jqPaginator('#pagination2', {
         totalPages: 100,
         visiblePages: 10,
         currentPage: 3,
-
-        wrapper:'<ul class="pagination"></ul>',
-        first: '<li class="first"><a href="javascript:void(0);">First</a></li>',
-        prev: '<li class="prev"><a href="javascript:void(0);">Previous</a></li>',
-        next: '<li class="next"><a href="javascript:void(0);">Next</a></li>',
-        last: '<li class="last"><a href="javascript:void(0);">Last</a></li>',
-        page: '<li class="page"><a href="javascript:void(0);">{{page}}</a></li>',
-        onPageChange: function (num) {
-            $('#p2').text(num);
+        prev: '<li class="prev"><a href="javascript:;">Previous</a></li>',
+        next: '<li class="next"><a href="javascript:;">Next</a></li>',
+        page: '<li class="page"><a href="javascript:;">{{page}}</a></li>',
+        onPageChange: function (num, type) {
+            $('#p2').text(type + '：' + num);
         }
     });
 </script>
