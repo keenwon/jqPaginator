@@ -1,4 +1,4 @@
-#jqPaginator分页组件 [![Build Status](https://secure.travis-ci.org/keenwon/jqPaginator.png?branch=master)](http://secure.travis-ci.org/keenwon/jqPaginator.png)
+#jqPaginator分页组件 [![Build Status](https://secure.travis-ci.org/keenwon/jqPaginator.png?branch=master)](http://secure.travis-ci.org/keenwon/jqPaginator)
 
 项目首页：[http://jqPaginator.keenwon.com/](http://jqPaginator.keenwon.com/)  
 问题反馈：[http://keenwon.com/1124.html](http://keenwon.com/1124.html)
