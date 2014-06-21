@@ -87,12 +87,19 @@ module.exports = function (grunt) {
             server: {
                 url: 'http://localhost:<%= connect.options.port %>/index.html'
             }
+        },
+        jasmine: {
+            src: 'src/js/jqPaginator.js',
+            options: {
+                specs: 'test/specs/**/*Spec.js',
+                vendor: 'src/js/jquery.min.js'
+            }
         }
     });
 
     grunt.registerTask('build', ['test', 'uglify']);
 
-    grunt.registerTask('test', ['jshint']);
+    grunt.registerTask('test', ['jshint', 'jasmine']);
 
     grunt.registerTask('server', function (target) {
         if (target === 'dist') {
