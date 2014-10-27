@@ -38,6 +38,30 @@
         self.verify = function () {
             var opts = self.options;
 
+            if (!self.isNumber(opts.totalPages)) {
+                throw new Error('[jqPaginator] type error: totalPages');
+            }
+
+            if (!self.isNumber(opts.totalCounts)) {
+                throw new Error('[jqPaginator] type error: totalCounts');
+            }
+
+            if (!self.isNumber(opts.pageSize)) {
+                throw new Error('[jqPaginator] type error: pageSize');
+            }
+
+            if (!self.isNumber(opts.currentPage)) {
+                throw new Error('[jqPaginator] type error: currentPage');
+            }
+
+            if (!self.isNumber(opts.visiblePages)) {
+                throw new Error('[jqPaginator] type error: visiblePages');
+            }
+
+            if (!opts.totalPages && !opts.totalCounts) {
+                throw new Error('[jqPaginator] totalCounts or totalPages is required');
+            }
+
             if (!opts.totalPages && !opts.totalCounts) {
                 throw new Error('[jqPaginator] totalCounts or totalPages is required');
             }
@@ -154,6 +178,11 @@
             }
 
             return pages;
+        };
+
+        self.isNumber = function (value) {
+            var type = typeof value;
+            return type === 'number' || type === 'undefined';
         };
 
         self.isEnable = function (type) {

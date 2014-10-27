@@ -108,7 +108,7 @@ describe('jqPaginator自动化测试', function () {
         });
 
         it('测试 jqPaginator("destroy") 方法', function () {
-            initFn = function(){
+            initFn = function () {
                 $page.jqPaginator('destroy');
             };
 
@@ -139,6 +139,82 @@ describe('jqPaginator自动化测试', function () {
             initFn = function () {
                 $page.jqPaginator('option', {
                     currentPage: 999999999
+                });
+            };
+
+            expect(initFn).toThrow();
+        });
+
+    });
+
+    describe('类型验证', function () {
+
+        var $page = null,
+            initFn = null;
+
+        beforeEach(function () {
+            $('body').append('<ul id="paginator"></ul>');
+            $page = $('#paginator');
+        });
+
+        afterEach(function () {
+            $page = null;
+            initFn = null;
+        });
+
+        it('类型错误，报错', function () {
+            initFn = function () {
+                $page = $('#paginator').jqPaginator({
+                    currentPage: '1',
+                    pageSize: '15',
+                    totalCounts: '100'
+                });
+            };
+
+            expect(initFn).toThrow();
+        });
+
+        it('currentPage类型错误，报错', function () {
+            initFn = function () {
+                $page = $('#paginator').jqPaginator({
+                    currentPage: '1',
+                    pageSize: 15,
+                    totalCounts: 100
+                });
+            };
+
+            expect(initFn).toThrow();
+        });
+
+        it('pageSize类型错误，报错', function () {
+            initFn = function () {
+                $page = $('#paginator').jqPaginator({
+                    currentPage: 1,
+                    pageSize: '15',
+                    totalCounts: 100
+                });
+            };
+
+            expect(initFn).toThrow();
+        });
+
+        it('totalCounts类型错误，报错', function () {
+            initFn = function () {
+                $page = $('#paginator').jqPaginator({
+                    currentPage: 1,
+                    pageSize: 15,
+                    totalCounts: '100'
+                });
+            };
+
+            expect(initFn).toThrow();
+        });
+
+        it('类型错误，报错', function () {
+            initFn = function () {
+                $page = $('#paginator').jqPaginator({
+                    currentPage: 1,
+                    totalPages: '100'
                 });
             };
 
