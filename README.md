@@ -20,6 +20,9 @@
 开发文件位于src目录，编译后的最终文件位于dist目录
 
 ##版本更新
+####
+在原来的基础上增加了pageSize下拉列表，通过option中的changePageSize来进行控制
+该参数可接受 changePageSize:"20|30|50"或者changePageSize:true
 ####1.2.0
 增加参数类型验证。
 
