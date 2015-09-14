@@ -104,13 +104,16 @@
 			for (var i = 0, j = pages.length; i < j; i++) {
 				html.push(self.buildItem('page', pages[i]));
 			}
-
 			self.isEnable('prev') && html.unshift(self.buildItem('prev', self.options.currentPage - 1));
 			self.isEnable('first') && html.unshift(self.buildItem('first', 1));
 			self.isEnable('statistics') && html.unshift(self.buildItem('statistics'));
 			self.isEnable('next') && html.push(self.buildItem('next', self.options.currentPage + 1));
 			self.isEnable('last') && html.push(self.buildItem('last', self.options.totalPages));
-
+			if(self.options.changePageSize===true){
+				html.push(self.setPageSizeOption());
+			}else if(/^([1-9]\d{0,2}\|)+[1-9]\d{1,2}$/.test(self.options.changePageSize)){
+				html.push(self.setPageSizeOption(self.options.changePageSize));				
+			}
 			if (self.options.wrapper) {
 				self.$container.html($(self.options.wrapper).html(html.join('')).jqPaginatorHTML());
 			} else {
@@ -129,6 +132,15 @@
 				'jp-data': pageData
 			}).jqPaginatorHTML();
 		};
+		self.setPageSizeOption=function(sizeStr){
+			var pageSizeStr=sizeStr||"5|10|20|50|100";
+			var pageSizeArray=pageSizeStr.split('|');
+				var optionStr="";
+				for(var s =0;s<pageSizeArray.length;s++){
+					optionStr=optionStr+"<option>"+pageSizeArray[s]+"</option>";
+				}
+				return '<select id="jqPageSize">'+optionStr+'</select>条/页';
+		}
 
 		self.setStatus = function() {
 			var options = self.options;
@@ -252,6 +264,7 @@
 		pageSize: 0,
 		currentPage: 1,
 		visiblePages: 7,
+		changePageSize:false,
 		disableClass: 'disabled',
 		activeClass: 'active',
 		onPageChange: null

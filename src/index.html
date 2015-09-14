@@ -3,8 +3,8 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8"/>
-    <title>jqPaginator</title>
-    <link type="text/css" rel="stylesheet" href="http://cdn.staticfile.org/twitter-bootstrap/3.1.1/css/bootstrap.min.css"/>
+    <title>jqPaginator</title>    
+    <link type="text/css" rel="stylesheet" href="css/jqPaginator.css"/>
 </head>
 <body style="padding:10px;">
     <p id="p1"></p>
@@ -27,6 +27,7 @@
         totalPages: 100,
         visiblePages: 10,
         currentPage: 3,
+        changePageSize:"20|30|50",//或者changePageSize:true
         prev: '<li class="prev"><a href="javascript:;">Previous</a></li>',
         next: '<li class="next"><a href="javascript:;">Next</a></li>',
         page: '<li class="page"><a href="javascript:;">{{page}}</a></li>',
