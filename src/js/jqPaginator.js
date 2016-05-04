@@ -226,7 +226,7 @@
                     return;
                 }
 
-                var pageIndex = +$el.attr('jp-data');
+                var pageIndex = parseInt($el.attr('jp-data'));
                 if (that.fireEvent(pageIndex, 'change')) {
                     that.switchPage(pageIndex);
                 }
