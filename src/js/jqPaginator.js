@@ -6,13 +6,13 @@
             return new $.jqPaginator(el, options);
         }
 
-        var self = this;
+        var that = this;
 
-        self.$container = $(el);
+        that.$container = $(el);
 
-        self.$container.data('jqPaginator', self);
+        that.$container.data('jqPaginator', that);
 
-        self.init = function () {
+        that.init = function () {
 
             if (options.first || options.prev || options.next || options.last || options.page) {
                 options = $.extend({}, {
@@ -24,37 +24,37 @@
                 }, options);
             }
 
-            self.options = $.extend({}, $.jqPaginator.defaultOptions, options);
+            that.options = $.extend({}, $.jqPaginator.defaultOptions, options);
 
-            self.verify();
+            that.verify();
 
-            self.extendJquery();
+            that.extendJquery();
 
-            self.render();
+            that.render();
 
-            self.fireEvent(this.options.currentPage, 'init');
+            that.fireEvent(this.options.currentPage, 'init');
         };
 
-        self.verify = function () {
-            var opts = self.options;
+        that.verify = function () {
+            var opts = that.options;
 
-            if (!self.isNumber(opts.totalPages)) {
+            if (!that.isNumber(opts.totalPages)) {
                 throw new Error('[jqPaginator] type error: totalPages');
             }
 
-            if (!self.isNumber(opts.totalCounts)) {
+            if (!that.isNumber(opts.totalCounts)) {
                 throw new Error('[jqPaginator] type error: totalCounts');
             }
 
-            if (!self.isNumber(opts.pageSize)) {
+            if (!that.isNumber(opts.pageSize)) {
                 throw new Error('[jqPaginator] type error: pageSize');
             }
 
-            if (!self.isNumber(opts.currentPage)) {
+            if (!that.isNumber(opts.currentPage)) {
                 throw new Error('[jqPaginator] type error: currentPage');
             }
 
-            if (!self.isNumber(opts.visiblePages)) {
+            if (!that.isNumber(opts.visiblePages)) {
                 throw new Error('[jqPaginator] type error: visiblePages');
             }
 
@@ -83,44 +83,44 @@
             }
         };
 
-        self.extendJquery = function () {
+        that.extendJquery = function () {
             $.fn.jqPaginatorHTML = function (s) {
                 return s ? this.before(s).remove() : $('<p>').append(this.eq(0).clone()).html();
             };
         };
 
-        self.render = function () {
-            self.renderHtml();
-            self.setStatus();
-            self.bindEvents();
+        that.render = function () {
+            that.renderHtml();
+            that.setStatus();
+            that.bindEvents();
         };
 
-        self.renderHtml = function () {
+        that.renderHtml = function () {
             var html = [];
 
-            var pages = self.getPages();
+            var pages = that.getPages();
             for (var i = 0, j = pages.length; i < j; i++) {
-                html.push(self.buildItem('page', pages[i]));
+                html.push(that.buildItem('page', pages[i]));
             }
 
-            self.isEnable('prev') && html.unshift(self.buildItem('prev', self.options.currentPage - 1));
-            self.isEnable('first') && html.unshift(self.buildItem('first', 1));
-            self.isEnable('statistics') && html.unshift(self.buildItem('statistics'));
-            self.isEnable('next') && html.push(self.buildItem('next', self.options.currentPage + 1));
-            self.isEnable('last') && html.push(self.buildItem('last', self.options.totalPages));
+            that.isEnable('prev') && html.unshift(that.buildItem('prev', that.options.currentPage - 1));
+            that.isEnable('first') && html.unshift(that.buildItem('first', 1));
+            that.isEnable('statistics') && html.unshift(that.buildItem('statistics'));
+            that.isEnable('next') && html.push(that.buildItem('next', that.options.currentPage + 1));
+            that.isEnable('last') && html.push(that.buildItem('last', that.options.totalPages));
 
-            if (self.options.wrapper) {
-                self.$container.html($(self.options.wrapper).html(html.join('')).jqPaginatorHTML());
+            if (that.options.wrapper) {
+                that.$container.html($(that.options.wrapper).html(html.join('')).jqPaginatorHTML());
             } else {
-                self.$container.html(html.join(''));
+                that.$container.html(html.join(''));
             }
         };
 
-        self.buildItem = function (type, pageData) {
-            var html = self.options[type]
+        that.buildItem = function (type, pageData) {
+            var html = that.options[type]
                 .replace(/{{page}}/g, pageData)
-                .replace(/{{totalPages}}/g, self.options.totalPages)
-                .replace(/{{totalCounts}}/g, self.options.totalCounts);
+                .replace(/{{totalPages}}/g, that.options.totalPages)
+                .replace(/{{totalCounts}}/g, that.options.totalCounts);
 
             return $(html).attr({
                 'jp-role': type,
@@ -128,31 +128,31 @@
             }).jqPaginatorHTML();
         };
 
-        self.setStatus = function () {
-            var options = self.options;
+        that.setStatus = function () {
+            var options = that.options;
 
-            if (!self.isEnable('first') || options.currentPage === 1) {
-                $('[jp-role=first]', self.$container).addClass(options.disableClass);
+            if (!that.isEnable('first') || options.currentPage === 1) {
+                $('[jp-role=first]', that.$container).addClass(options.disableClass);
             }
-            if (!self.isEnable('prev') || options.currentPage === 1) {
-                $('[jp-role=prev]', self.$container).addClass(options.disableClass);
+            if (!that.isEnable('prev') || options.currentPage === 1) {
+                $('[jp-role=prev]', that.$container).addClass(options.disableClass);
             }
-            if (!self.isEnable('next') || options.currentPage >= options.totalPages) {
-                $('[jp-role=next]', self.$container).addClass(options.disableClass);
+            if (!that.isEnable('next') || options.currentPage >= options.totalPages) {
+                $('[jp-role=next]', that.$container).addClass(options.disableClass);
             }
-            if (!self.isEnable('last') || options.currentPage >= options.totalPages) {
-                $('[jp-role=last]', self.$container).addClass(options.disableClass);
+            if (!that.isEnable('last') || options.currentPage >= options.totalPages) {
+                $('[jp-role=last]', that.$container).addClass(options.disableClass);
             }
 
-            $('[jp-role=page]', self.$container).removeClass(options.activeClass);
-            $('[jp-role=page][jp-data=' + options.currentPage + ']', self.$container).addClass(options.activeClass);
+            $('[jp-role=page]', that.$container).removeClass(options.activeClass);
+            $('[jp-role=page][jp-data=' + options.currentPage + ']', that.$container).addClass(options.activeClass);
         };
 
-        self.getPages = function () {
+        that.getPages = function () {
             var pages = [],
-                visiblePages = self.options.visiblePages,
-                currentPage = self.options.currentPage,
-                totalPages = self.options.totalPages;
+                visiblePages = that.options.visiblePages,
+                currentPage = that.options.currentPage,
+                totalPages = that.options.totalPages;
 
             if (visiblePages > totalPages) {
                 visiblePages = totalPages;
@@ -180,62 +180,62 @@
             return pages;
         };
 
-        self.isNumber = function (value) {
+        that.isNumber = function (value) {
             var type = typeof value;
             return type === 'number' || type === 'undefined';
         };
 
-        self.isEnable = function (type) {
-            return self.options[type] && typeof self.options[type] === 'string';
+        that.isEnable = function (type) {
+            return that.options[type] && typeof that.options[type] === 'string';
         };
 
-        self.switchPage = function (pageIndex) {
-            self.options.currentPage = pageIndex;
-            self.render();
+        that.switchPage = function (pageIndex) {
+            that.options.currentPage = pageIndex;
+            that.render();
         };
 
-        self.fireEvent = function (pageIndex, type) {
-            return (typeof self.options.onPageChange !== 'function') || (self.options.onPageChange(pageIndex, type) !== false);
+        that.fireEvent = function (pageIndex, type) {
+            return (typeof that.options.onPageChange !== 'function') || (that.options.onPageChange(pageIndex, type) !== false);
         };
 
-        self.callMethod = function (method, options) {
+        that.callMethod = function (method, options) {
             switch (method) {
                 case 'option':
-                    self.options = $.extend({}, self.options, options);
-                    self.verify();
-                    self.render();
+                    that.options = $.extend({}, that.options, options);
+                    that.verify();
+                    that.render();
                     break;
                 case 'destroy':
-                    self.$container.empty();
-                    self.$container.removeData('jqPaginator');
+                    that.$container.empty();
+                    that.$container.removeData('jqPaginator');
                     break;
                 default :
                     throw new Error('[jqPaginator] method "' + method + '" does not exist');
             }
 
-            return self.$container;
+            return that.$container;
         };
 
-        self.bindEvents = function () {
-            var opts = self.options;
+        that.bindEvents = function () {
+            var opts = that.options;
 
-            self.$container.off();
-            self.$container.on('click', '[jp-role]', function () {
+            that.$container.off();
+            that.$container.on('click', '[jp-role]', function () {
                 var $el = $(this);
                 if ($el.hasClass(opts.disableClass) || $el.hasClass(opts.activeClass)) {
                     return;
                 }
 
                 var pageIndex = +$el.attr('jp-data');
-                if (self.fireEvent(pageIndex, 'change')) {
-                    self.switchPage(pageIndex);
+                if (that.fireEvent(pageIndex, 'change')) {
+                    that.switchPage(pageIndex);
                 }
             });
         };
 
-        self.init();
+        that.init();
 
-        return self.$container;
+        return that.$container;
     };
 
     $.jqPaginator.defaultOptions = {
@@ -256,11 +256,11 @@
     };
 
     $.fn.jqPaginator = function () {
-        var self = this,
+        var that = this,
             args = Array.prototype.slice.call(arguments);
 
         if (typeof args[0] === 'string') {
-            var $instance = $(self).data('jqPaginator');
+            var $instance = $(that).data('jqPaginator');
             if (!$instance) {
                 throw new Error('[jqPaginator] the element is not instantiated');
             } else {
