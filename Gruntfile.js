@@ -25,7 +25,7 @@ module.exports = function (grunt) {
             },
             dist: {
                 files: {
-                    'dist/<%= pkg.version %>/<%= pkg.name %>.min.js': ['src/js/jqPaginator.js']
+                    'dist/<%= pkg.name %>.min.js': ['src/js/jqPaginator.js']
                 }
             }
         },
@@ -45,9 +45,7 @@ module.exports = function (grunt) {
             }
         },
         clean: {
-            spm: {
-                src: [ '**/.gitignore', '**/.npmignore']
-            }
+            src: [ 'dist/']
         },
         connect: {
             options: {
@@ -92,12 +90,12 @@ module.exports = function (grunt) {
             src: 'src/js/jqPaginator.js',
             options: {
                 specs: 'test/specs/**/*Spec.js',
-                vendor: 'src/js/jquery.min.js'
+                vendor: 'src/js/libs/jquery/jquery.js'
             }
         }
     });
 
-    grunt.registerTask('build', ['test', 'uglify']);
+    grunt.registerTask('build', ['clean' , 'test', 'uglify']);
 
     grunt.registerTask('test', ['jshint', 'jasmine']);
 
