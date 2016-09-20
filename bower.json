@@ -1,5 +1,12 @@
 {
-  "name": "nfm-ui",
+  "name": "jqPaginator",
+  "authors": [
+    "keenwon <semanwmj@yeah.net>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
   "dependencies": {
     "jquery": "1.7.1"
   }
