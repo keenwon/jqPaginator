@@ -1,0 +1,6 @@
+{
+  "name": "nfm-ui",
+  "dependencies": {
+    "jquery": "1.7.1"
+  }
+}
