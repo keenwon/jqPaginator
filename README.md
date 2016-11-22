@@ -3,9 +3,6 @@
 [![Build Status][travis-image]][travis-url]
 [![Bower Status][bower-image]][bower-url]
 
-项目首页：[http://jqPaginator.keenwon.com/](http://jqPaginator.keenwon.com/)  
-问题反馈：[http://keenwon.com/1124.html](http://keenwon.com/1124.html)
-
 ## 使用说明
 
 1. 使用bower安装`bower install jqPaginator`
