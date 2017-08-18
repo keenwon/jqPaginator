@@ -9,6 +9,10 @@
 
 #### 代码片段:
 
+<!--
+最好使用 https://jsbin.com https://jsfiddle.net/ https://codepen.io/ 等写个简单的 Demo，方便问题的解决（或者你会直接发现，问题不在 jqPaginator）
+-->
+
 ```js
 
 ```
