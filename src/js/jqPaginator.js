@@ -62,10 +62,6 @@
                 throw new Error('[jqPaginator] totalCounts or totalPages is required');
             }
 
-            if (!opts.totalPages && !opts.totalCounts) {
-                throw new Error('[jqPaginator] totalCounts or totalPages is required');
-            }
-
             if (!opts.totalPages && opts.totalCounts && !opts.pageSize) {
                 throw new Error('[jqPaginator] pageSize is required');
             }
