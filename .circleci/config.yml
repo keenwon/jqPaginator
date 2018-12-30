@@ -1,0 +1,14 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/node:11-browsers
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+      - run: npm install
+      - run: npm run test:lint
+      - run: npm run test:unit
+      - run: npm run build
