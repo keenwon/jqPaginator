@@ -1,7 +1,10 @@
 # jqPaginator分页组件
 
-[![Build Status][travis-image]][travis-url]
-[![Bower Status][bower-image]][bower-url]
+[![NPM Version][npm-image]][npm-url]
+[![License Status][license-image]][license-url]
+[![Build Status][circleci-image]][circleci-url]
+[![Dependencies Status][dependencies-image]][dependencies-url]
+[![Devdependencies Status][devdependencies-image]][devdependencies-url]
 
 ## 使用说明
 
@@ -70,7 +73,13 @@ option函数优化
 spm install keenwon/jqPaginator
 ```
 
-[travis-image]: https://img.shields.io/travis/keenwon/jqPaginator.svg?style=flat-square
-[travis-url]: https://travis-ci.org/keenwon/jqPaginator
-[bower-image]: https://img.shields.io/bower/v/jqPaginator.svg?style=flat-square
-[bower-url]: https://github.com/keenwon/jqPaginator
+[npm-image]: https://img.shields.io/npm/v/jq-paginator.svg?maxAge=3600&&style=flat-square
+[npm-url]: https://www.npmjs.com/package/jq-paginator
+[license-image]: https://img.shields.io/github/license/keenwon/jqPaginator.svg?maxAge=3600&style=flat-square
+[license-url]: https://github.com/keenwon/jqPaginator/blob/master/LICENSE
+[circleci-image]: https://img.shields.io/circleci/project/github/keenwon/jqPaginator.svg?maxAge=3600&logo=circleci&style=flat-square
+[circleci-url]: https://circleci.com/gh/keenwon/jqPaginator
+[dependencies-image]: https://img.shields.io/david/keenwon/jqPaginator.svg?maxAge=3600&style=flat-square
+[dependencies-url]: https://david-dm.org/keenwon/jqPaginator
+[devdependencies-image]: https://img.shields.io/david/dev/keenwon/jqPaginator.svg?maxAge=3600&style=flat-square
+[devdependencies-url]: https://david-dm.org/keenwon/jqPaginator?type=dev
