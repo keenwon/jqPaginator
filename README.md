@@ -1,4 +1,4 @@
-# jqPaginator分页组件
+# jq-paginator 分页组件
 
 [![NPM Version][npm-image]][npm-url]
 [![License Status][license-image]][license-url]
@@ -14,11 +14,11 @@
 npm install jq-paginator --save
 ```
 
-<span style="color: red;">注意：npm 包名是 jq-paginator</span>
+**注意：npm 包名是 jq-paginator**
 
 ### 直接引入
 
-直接引入 `dist` 编译好的文件，或者使用 [unpkg](https://unpkg.com/) 等 CDN 服务。
+直接下载使用 `dist` 文件夹中编译好的文件，或者使用 [unpkg](https://unpkg.com/) 等 CDN 服务。
 
 ## 开发说明
 
@@ -40,7 +40,7 @@ npm test
 npm run build
 ```
 
-## 版本更新
+## Changelog
 
 #### 2.0.0
 
