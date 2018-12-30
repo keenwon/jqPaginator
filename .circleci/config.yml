@@ -3,12 +3,29 @@ jobs:
   build:
     docker:
       - image: circleci/node:11-browsers
-
     working_directory: ~/repo
-
     steps:
       - checkout
       - run: npm install
       - run: npm run test:lint
       - run: npm run test:unit
       - run: npm run build
+
+workflows:
+  version: 2
+  run_test:
+    jobs:
+      - build:
+          filters:
+            tags:
+              only: /^v.*/
+  nightly:
+    triggers:
+      - schedule:
+          cron: "0 15 * * *"
+          filters:
+            branches:
+              only:
+                - master
+    jobs:
+      - build
