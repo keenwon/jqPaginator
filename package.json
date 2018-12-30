@@ -1,25 +1,27 @@
 {
-  "name": "jqpaginator",
-  "version": "1.2.1",
+  "name": "jq-paginator",
+  "version": "1.0.0",
   "description": "基于jquery的多功能分页控件",
+  "main": "",
+  "scripts": {
+    "beforecommit": "npm run test",
+    "test": "npm run test:lint",
+    "test:lint": "elint lint \"+(src|test)/**/*.js\" --fix"
+  },
   "dependencies": {},
   "devDependencies": {
-    "connect-livereload": "^0.6.0",
-    "grunt": "^0.4.5",
-    "grunt-contrib-clean": "^1.0.0",
-    "grunt-contrib-connect": "^1.0.2",
-    "grunt-contrib-jasmine": "latest",
-    "grunt-contrib-jshint": "^1.0.0",
-    "grunt-contrib-uglify": "^2.0.0",
-    "grunt-contrib-watch": "^1.0.0",
-    "grunt-open": "~0.2.2",
-    "grunt-reload": "~0.2.0",
-    "matchdep": "*"
+    "elint": "^1.9.0",
+    "elint-preset-kw": "^1.0.1"
   },
-  "scripts": {
-    "test": "grunt test"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/keenwon/jqPaginator.git"
   },
-  "engines": {
-    "node": ">=0.8.0"
-  }
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/keenwon/jqPaginator/issues"
+  },
+  "homepage": "https://github.com/keenwon/jqPaginator#readme"
 }

@@ -1,7 +1,29 @@
-.gitattributes
-demo/
-node_modules/
-.git/
-.idea/
-.vscode/
-src/js/libs/
+.project
+
+# Windows:
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# node
+node_modules
+*.log
+
+# vim
+*.swp
+
+# webstorm
+.idea
+
+# vscode
+.vscode
+jsconfig.json
+
+# macos
+.DS_Store
+
+# elint
+/.commitlintrc.js
+/.eslintrc.js
+/.huskyrc.js
+/.stylelintrc.js
