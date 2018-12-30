@@ -1,6 +1,6 @@
 {
   "name": "jq-paginator",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "基于 jQuery 的多功能分页控件",
   "main": "./dist/jq-paginator.js",
   "scripts": {
@@ -31,6 +31,9 @@
     "email": "semanwmj@gmail.com",
     "url": "http://keenwon.com"
   },
+  "files": [
+    "dist"
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/keenwon/jqPaginator/issues"
