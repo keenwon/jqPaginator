@@ -1,5 +1,5 @@
 /*!
- * jq-paginator v2.0.0
+ * jq-paginator v2.0.1
  * http://jqPaginator.keenwon.com
  */
 

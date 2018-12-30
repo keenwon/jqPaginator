@@ -1,6 +1,6 @@
 {
   "name": "jq-paginator",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "基于 jQuery 的多功能分页控件",
   "main": "./index.js",
   "scripts": {
