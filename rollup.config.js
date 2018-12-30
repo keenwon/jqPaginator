@@ -20,7 +20,6 @@ module.exports = [
     input: './src/jq-paginator.js',
     plugins: [
       terser({
-        sourcemap: true,
         output: {
           comments: /^!/
         }
@@ -29,8 +28,7 @@ module.exports = [
     output: {
       file: './dist/jq-paginator.min.js',
       banner,
-      format: 'iife',
-      sourcemap: true
+      format: 'iife'
     }
   }
 ]

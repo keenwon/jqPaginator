@@ -2,11 +2,11 @@
   "name": "jq-paginator",
   "version": "2.0.0",
   "description": "基于 jQuery 的多功能分页控件",
-  "main": "./dist/jq-paginator.js",
+  "main": "./index.js",
   "scripts": {
     "beforecommit": "npm run test",
     "test": "npm run test:lint",
-    "test:lint": "elint lint \"+(src|test)/**/*.js\" --fix",
+    "test:lint": "elint lint \"+(src|test)/**/*.js\" \"index.js\" --fix",
     "prebuild": "rimraf ./dist",
     "build": "rollup --config"
   },
