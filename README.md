@@ -2,13 +2,13 @@
 
 [![NPM Version][npm-image]][npm-url]
 [![License Status][license-image]][license-url]
-[![Dependencies Status][dependencies-image]][dependencies-url]
-[![Devdependencies Status][devdependencies-image]][devdependencies-url]
-  
 [![Build Status][circleci-image]][circleci-url]
 [![Coverage Status][codecov-image]][codecov-url]
 [![Lgtm Alerts][lgtm-alerts-image]][lgtm-alerts-url]
 [![Lgtm Grade][lgtm-grade-image]][lgtm-grade-url]
+  
+[![Dependencies Status][dependencies-image]][dependencies-url]
+[![Devdependencies Status][devdependencies-image]][devdependencies-url]
 
 ## 使用说明
 
@@ -80,19 +80,19 @@ option函数优化
 spm install keenwon/jqPaginator
 ```
 
-[npm-image]: https://img.shields.io/npm/v/jq-paginator.svg?maxAge=3600&&style=flat-square
+[npm-image]: https://img.shields.io/npm/v/jq-paginator.svg?maxAge=3600&style=flat-square
 [npm-url]: https://www.npmjs.com/package/jq-paginator
 [license-image]: https://img.shields.io/github/license/keenwon/jqPaginator.svg?maxAge=3600&style=flat-square
 [license-url]: https://github.com/keenwon/jqPaginator/blob/master/LICENSE
 [circleci-image]: https://img.shields.io/circleci/project/github/keenwon/jqPaginator.svg?maxAge=3600&logo=circleci&style=flat-square
 [circleci-url]: https://circleci.com/gh/keenwon/jqPaginator
-[codecov-image]: https://img.shields.io/codecov/c/github/codecov/example-python.svg
+[codecov-image]: https://img.shields.io/codecov/c/github/keenwon/jqPaginator.svg?maxAge=3600&style=flat-square
 [codecov-url]: https://codecov.io/gh/keenwon/jqPaginator
 [dependencies-image]: https://img.shields.io/david/keenwon/jqPaginator.svg?maxAge=3600&style=flat-square
 [dependencies-url]: https://david-dm.org/keenwon/jqPaginator
 [devdependencies-image]: https://img.shields.io/david/dev/keenwon/jqPaginator.svg?maxAge=3600&style=flat-square
 [devdependencies-url]: https://david-dm.org/keenwon/jqPaginator?type=dev
-[lgtm-alerts-image]: https://img.shields.io/lgtm/alerts/g/keenwon/jqPaginator.svg?logo=lgtm&logoWidth=18&maxAge=3600
+[lgtm-alerts-image]: https://img.shields.io/lgtm/alerts/g/keenwon/jqPaginator.svg?logo=lgtm&logoWidth=18&maxAge=3600&style=flat-square
 [lgtm-alerts-url]: https://lgtm.com/projects/g/keenwon/jqPaginator/alerts/
-[lgtm-grade-image]: https://img.shields.io/lgtm/grade/javascript/g/keenwon/jqPaginator.svg?logo=lgtm&logoWidth=18&maxAge=3600
+[lgtm-grade-image]: https://img.shields.io/lgtm/grade/javascript/g/keenwon/jqPaginator.svg?logo=lgtm&logoWidth=18&maxAge=3600&style=flat-square
 [lgtm-grade-url]: https://lgtm.com/projects/g/keenwon/jqPaginator/context:javascript
