@@ -12,6 +12,8 @@
 
 ## 使用说明
 
+详细的使用文档和 Demo 请查看 [http://jqpaginator.keenwon.com/](http://jqpaginator.keenwon.com/)
+
 ### npm 安装
 
 ```shell
