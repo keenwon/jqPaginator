@@ -5,7 +5,7 @@
   "main": "./index.js",
   "scripts": {
     "start": "webpack-dev-server --open",
-    "beforecommit": "npm run test",
+    "beforecommit": "elint lint commit && npm run test",
     "test": "npm run test:lint && npm run test:unit",
     "test:lint": "elint lint \"+(src|test)/**/*.js\" \"*.js\" --fix",
     "test:unit": "karma start",
