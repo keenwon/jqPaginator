@@ -246,9 +246,30 @@ describe('jqPaginator 测试', function () {
     })
 
     it('option 不合法', function () {
-      expect(function () {
+      initFn = function () {
+        $page.jqPaginator({
+          currentPage: 1,
+          pageSize: 10,
+          totalCounts: 100
+        })
+
         $page.jqPaginator('keenwon')
-      }).toThrow()
+      }
+
+      expect(initFn).toThrow()
+    })
+
+    it('wrapper', function () {
+      initFn = function () {
+        $page.jqPaginator({
+          wrapper: '<div class="your class"></div>',
+          currentPage: 1,
+          pageSize: 10,
+          totalCounts: 100
+        })
+      }
+
+      expect(initFn).not.toThrow()
     })
 
     it('this 非 jqPaginator 实例', function () {
@@ -261,6 +282,17 @@ describe('jqPaginator 测试', function () {
       }
 
       expect(initFn).not.toThrow()
+    })
+
+    it('pageSize 不合法', function () {
+      initFn = function () {
+        $.jqPaginator.call(null, '#paginator', {
+          currentPage: 1,
+          totalCounts: 100
+        })
+      }
+
+      expect(initFn).toThrow()
     })
 
     it('自定义 html', function () {
@@ -313,6 +345,51 @@ describe('jqPaginator 测试', function () {
           visiblePages: 1000,
           totalCounts: 100
         })
+      }
+
+      expect(initFn).not.toThrow()
+    })
+
+    it('触发分页', function () {
+      initFn = function () {
+        $page.jqPaginator({
+          currentPage: 1,
+          pageSize: 10,
+          totalCounts: 100
+        })
+
+        $('.next', $page).trigger('click')
+      }
+
+      expect(initFn).not.toThrow()
+    })
+
+    it('触发分页, disable', function () {
+      initFn = function () {
+        $page.jqPaginator({
+          currentPage: 10,
+          pageSize: 10,
+          totalCounts: 100
+        })
+
+        $('.next', $page).trigger('click')
+      }
+
+      expect(initFn).not.toThrow()
+    })
+
+    it('触发分页, onPageChange 阻止', function () {
+      initFn = function () {
+        $page.jqPaginator({
+          currentPage: 1,
+          pageSize: 10,
+          totalCounts: 100,
+          onPageChange: function () {
+            return false
+          }
+        })
+
+        $('.next', $page).trigger('click')
       }
 
       expect(initFn).not.toThrow()
