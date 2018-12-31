@@ -18,7 +18,7 @@
 npm install jq-paginator --save
 ```
 
-**注意：npm 包名是 jq-paginator**
+:warning: **注意：npm 包名是 jq-paginator**
 
 ### 直接引入
 
