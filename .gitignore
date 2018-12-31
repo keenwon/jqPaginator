@@ -22,6 +22,9 @@ jsconfig.json
 # macos
 .DS_Store
 
+# coverage
+coverage
+
 # elint
 /.commitlintrc.js
 /.eslintrc.js
