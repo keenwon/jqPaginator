@@ -222,6 +222,19 @@ describe('jqPaginator 测试', function () {
   })
 
   describe('其他', function () {
+    var $page = null
+    var initFn = null
+
+    beforeEach(function () {
+      insertElement()
+      $page = $('#paginator')
+    })
+
+    afterEach(function () {
+      $page = null
+      initFn = null
+    })
+
     it('$.jqPaginator 已存在', function () {
       expect($.jqPaginator).toBeDefined()
     })
@@ -232,21 +245,27 @@ describe('jqPaginator 测试', function () {
       }).toThrow()
     })
 
-    it('this 非 jqPaginator 实例', function () {
+    it('option 不合法', function () {
       expect(function () {
+        $page.jqPaginator('keenwon')
+      }).toThrow()
+    })
+
+    it('this 非 jqPaginator 实例', function () {
+      initFn = function () {
         $.jqPaginator.call(null, '#paginator', {
           currentPage: 1,
           pageSize: 15,
           totalCounts: 100
         })
-      }).not.toThrow()
+      }
+
+      expect(initFn).not.toThrow()
     })
 
     it('自定义 html', function () {
-      insertElement()
-
-      expect(function () {
-        $('#paginator').jqPaginator({
+      initFn = function () {
+        $page.jqPaginator({
           currentPage: 1,
           pageSize: 15,
           totalCounts: 100,
@@ -256,30 +275,47 @@ describe('jqPaginator 测试', function () {
           last: '<li class="last"><a href="javascript:;">Last</a></li>',
           page: '<li class="page"><a href="javascript:;">{{page}}</a></li>'
         })
-      }).not.toThrow()
+      }
+
+      expect(initFn).not.toThrow()
     })
 
     it('visiblePages 不合法', function () {
-      insertElement()
-
-      expect(function () {
-        $('#paginator').jqPaginator({
+      initFn = function () {
+        $page.jqPaginator({
           currentPage: 1,
           pageSize: 15,
           totalCounts: 100,
           visiblePages: 'asdf'
         })
-      }).toThrow()
+      }
+
+      expect(initFn).toThrow()
     })
 
-    it('pageSize 不合法', function () {
-      insertElement()
-
-      expect(function () {
-        $('#paginator').jqPaginator({
+    it('当前在最后一页 (禁用 next 和 last)', function () {
+      initFn = function () {
+        $page.jqPaginator({
+          currentPage: 10,
+          pageSize: 10,
           totalCounts: 100
         })
-      }).toThrow()
+      }
+
+      expect(initFn).not.toThrow()
+    })
+
+    it('visiblePages > totalPages', function () {
+      initFn = function () {
+        $page.jqPaginator({
+          currentPage: 1,
+          pageSize: 10,
+          visiblePages: 1000,
+          totalCounts: 100
+        })
+      }
+
+      expect(initFn).not.toThrow()
     })
   })
 })
