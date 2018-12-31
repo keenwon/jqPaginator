@@ -5,6 +5,8 @@
 [![Build Status][circleci-image]][circleci-url]
 [![Dependencies Status][dependencies-image]][dependencies-url]
 [![Devdependencies Status][devdependencies-image]][devdependencies-url]
+[![Lgtm Alerts][lgtm-alerts-image]][lgtm-alerts-url]
+[![Lgtm Grade][lgtm-grade-image]][lgtm-grade-url]
 
 ## 使用说明
 
@@ -86,3 +88,7 @@ spm install keenwon/jqPaginator
 [dependencies-url]: https://david-dm.org/keenwon/jqPaginator
 [devdependencies-image]: https://img.shields.io/david/dev/keenwon/jqPaginator.svg?maxAge=3600&style=flat-square
 [devdependencies-url]: https://david-dm.org/keenwon/jqPaginator?type=dev
+[lgtm-alerts-image]: https://img.shields.io/lgtm/alerts/g/keenwon/jqPaginator.svg?logo=lgtm&logoWidth=18&maxAge=3600
+[lgtm-alerts-url]: https://lgtm.com/projects/g/keenwon/jqPaginator/alerts/
+[lgtm-grade-image]: https://img.shields.io/lgtm/grade/javascript/g/keenwon/jqPaginator.svg?logo=lgtm&logoWidth=18&maxAge=3600
+[lgtm-grade-url]: https://lgtm.com/projects/g/keenwon/jqPaginator/context:javascript
