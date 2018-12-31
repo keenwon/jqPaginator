@@ -1,17 +1,18 @@
 /* eslint-env jquery */
+/* eslint-disable no-new, new-cap */
 
-describe('jqPaginator自动化测试', function () {
-  it('$.jqPaginator 已存在', function () {
-    expect($.jqPaginator).toBeDefined()
-  })
+function insertElement () {
+  $('#paginator').remove()
+  $('body').append('<ul id="paginator"></ul>')
+}
 
+describe('jqPaginator 测试', function () {
   describe('初始化相关测试', function () {
     var $page = null
-
     var initFn = null
 
     beforeEach(function () {
-      $('body').append('<ul id="paginator"></ul>')
+      insertElement()
       $page = $('#paginator')
     })
 
@@ -90,13 +91,12 @@ describe('jqPaginator自动化测试', function () {
     })
   })
 
-  describe('测试初始化后的相关操作', function () {
+  describe('分页操作测试', function () {
     var $page = null
-
     var initFn = null
 
     beforeEach(function () {
-      $('body').append('<ul id="paginator"></ul>')
+      insertElement()
       $page = $('#paginator').jqPaginator({
         currentPage: 1,
         pageSize: 15,
@@ -149,11 +149,11 @@ describe('jqPaginator自动化测试', function () {
   })
 
   describe('类型验证', function () {
-    var $page
-    var initFn
+    var $page = null
+    var initFn = null
 
     beforeEach(function () {
-      $('body').append('<ul id="paginator"></ul>')
+      insertElement()
       $page = $('#paginator')
     })
 
@@ -218,6 +218,68 @@ describe('jqPaginator自动化测试', function () {
       }
 
       expect(initFn).toThrow()
+    })
+  })
+
+  describe('其他', function () {
+    it('$.jqPaginator 已存在', function () {
+      expect($.jqPaginator).toBeDefined()
+    })
+
+    it('id 不存在', function () {
+      expect(function () {
+        $('#keenwon').jqPaginator('destroy')
+      }).toThrow()
+    })
+
+    it('this 非 jqPaginator 实例', function () {
+      expect(function () {
+        $.jqPaginator.call(null, '#paginator', {
+          currentPage: 1,
+          pageSize: 15,
+          totalCounts: 100
+        })
+      }).not.toThrow()
+    })
+
+    it('自定义 html', function () {
+      insertElement()
+
+      expect(function () {
+        $('#paginator').jqPaginator({
+          currentPage: 1,
+          pageSize: 15,
+          totalCounts: 100,
+          first: '<li class="first"><a href="javascript:;">First</a></li>',
+          prev: '<li class="prev"><a href="javascript:;">Previous</a></li>',
+          next: '<li class="next"><a href="javascript:;">Next</a></li>',
+          last: '<li class="last"><a href="javascript:;">Last</a></li>',
+          page: '<li class="page"><a href="javascript:;">{{page}}</a></li>'
+        })
+      }).not.toThrow()
+    })
+
+    it('visiblePages 不合法', function () {
+      insertElement()
+
+      expect(function () {
+        $('#paginator').jqPaginator({
+          currentPage: 1,
+          pageSize: 15,
+          totalCounts: 100,
+          visiblePages: 'asdf'
+        })
+      }).toThrow()
+    })
+
+    it('pageSize 不合法', function () {
+      insertElement()
+
+      expect(function () {
+        $('#paginator').jqPaginator({
+          totalCounts: 100
+        })
+      }).toThrow()
     })
   })
 })
