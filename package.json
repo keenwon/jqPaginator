@@ -6,14 +6,15 @@
   "scripts": {
     "beforecommit": "npm run test",
     "test": "npm run test:lint && npm run test:unit",
-    "test:lint": "elint lint \"+(src|test)/**/*.js\" \"index.js\" --fix",
+    "test:lint": "elint lint \"+(src|test)/**/*.js\" \"*.js\" --fix",
     "test:unit": "karma start",
     "prebuild": "rimraf ./dist",
     "build": "rollup --config"
   },
   "devDependencies": {
+    "codecov": "^3.1.0",
     "elint": "^1.9.0",
-    "elint-preset-kw": "^1.0.3",
+    "elint-preset-kw": "^1.1.0",
     "jquery": "^3.3.1",
     "karma": "^3.1.4",
     "karma-chrome-launcher": "^2.2.0",

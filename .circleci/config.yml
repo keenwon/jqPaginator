@@ -4,12 +4,15 @@ jobs:
     docker:
       - image: circleci/node:11-browsers
     working_directory: ~/repo
+    environment:
+      CODECOV_TOKEN: 70be8a3a-e0d9-42f3-9716-918ad198cbc1
     steps:
       - checkout
       - run: npm install
       - run: npm run test:lint
       - run: npm run test:unit
       - run: npm run build
+      - run: npx codecov
 
 workflows:
   version: 2

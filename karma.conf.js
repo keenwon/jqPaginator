@@ -13,8 +13,11 @@ module.exports = function (config) {
       'src/**/*.js': ['coverage']
     },
     coverageReporter: {
-      type : 'html',
-      dir : 'coverage/'
+      reporters: [
+        { type: 'html', dir: 'coverage/' },
+        { type: 'lcovonly', subdir: '.' },
+        { type: 'json', subdir: '.' }
+      ]
     }
   })
 }
