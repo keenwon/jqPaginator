@@ -8,7 +8,7 @@ module.exports = function (config) {
     singleRun: true,
     frameworks: ['jasmine'],
     files: [jquery, './src/jq-paginator.js', './test/**/*.js'],
-    reporters: ['progress', 'coverage'],
+    reporters: ['mocha', 'coverage'],
     preprocessors: {
       'src/**/*.js': ['coverage']
     },

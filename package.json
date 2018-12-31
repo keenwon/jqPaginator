@@ -22,6 +22,7 @@
     "karma-chrome-launcher": "^2.2.0",
     "karma-coverage": "^1.1.2",
     "karma-jasmine": "^2.0.1",
+    "karma-mocha-reporter": "^2.2.5",
     "rimraf": "^2.6.2",
     "rollup": "^1.0.0",
     "rollup-plugin-terser": "^3.0.0",
