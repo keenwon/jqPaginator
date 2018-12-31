@@ -32,6 +32,12 @@ npm install jq-paginator --save
 npm install
 ```
 
+本地开发：
+
+```shell
+npm start
+```
+
 执行测试：
 
 ```shell
