@@ -2,9 +2,11 @@
 
 [![NPM Version][npm-image]][npm-url]
 [![License Status][license-image]][license-url]
-[![Build Status][circleci-image]][circleci-url]
 [![Dependencies Status][dependencies-image]][dependencies-url]
 [![Devdependencies Status][devdependencies-image]][devdependencies-url]
+  
+[![Build Status][circleci-image]][circleci-url]
+[![Coverage Status][codecov-image]][codecov-url]
 [![Lgtm Alerts][lgtm-alerts-image]][lgtm-alerts-url]
 [![Lgtm Grade][lgtm-grade-image]][lgtm-grade-url]
 
@@ -84,6 +86,8 @@ spm install keenwon/jqPaginator
 [license-url]: https://github.com/keenwon/jqPaginator/blob/master/LICENSE
 [circleci-image]: https://img.shields.io/circleci/project/github/keenwon/jqPaginator.svg?maxAge=3600&logo=circleci&style=flat-square
 [circleci-url]: https://circleci.com/gh/keenwon/jqPaginator
+[codecov-image]: https://img.shields.io/codecov/c/github/codecov/example-python.svg
+[codecov-url]: https://codecov.io/gh/keenwon/jqPaginator
 [dependencies-image]: https://img.shields.io/david/keenwon/jqPaginator.svg?maxAge=3600&style=flat-square
 [dependencies-url]: https://david-dm.org/keenwon/jqPaginator
 [devdependencies-image]: https://img.shields.io/david/dev/keenwon/jqPaginator.svg?maxAge=3600&style=flat-square
