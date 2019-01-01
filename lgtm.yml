@@ -1,4 +1,5 @@
 path_classifiers:
   test:
+    - exclude: / # ignore our default classification for test code
     - src
     - test
