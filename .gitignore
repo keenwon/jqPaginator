@@ -30,3 +30,6 @@ coverage
 /.eslintrc.js
 /.huskyrc.js
 /.stylelintrc.js
+
+# nightwatch
+test/e2e/screenshots

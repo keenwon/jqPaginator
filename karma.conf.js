@@ -7,7 +7,7 @@ module.exports = function (config) {
     browsers: ['Chrome'],
     singleRun: true,
     frameworks: ['jasmine'],
-    files: [jquery, './src/jq-paginator.js', './test/**/*.js'],
+    files: [jquery, './src/jq-paginator.js', './test/unit/**/*.js'],
     reporters: ['mocha', 'coverage'],
     preprocessors: {
       'src/**/*.js': ['coverage']
