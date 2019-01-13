@@ -6,14 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link type="text/css" rel="stylesheet" href="http://cdn.staticfile.org/twitter-bootstrap/3.1.1/css/bootstrap.min.css" />
     <style>
+      body {
+        margin: 0;
+        padding: 20px;
+      }
       .demo {
         padding: 20px;
-        margin: 20px 0;
+        margin-bottom: 20px;
         background-color: #f7f7f7;
       }
-      .demo p {
-        font-size: 15px;
-      }
+
       .customBootstrap .pagination > li > a {
         margin-right: 5px;
         border-radius: 2px;
@@ -35,18 +37,15 @@
         background: #fb9400;
         border-color: #fb9400;
       }
-      .customBootstrap .pagination .arrow2 {
-        margin: 3px 8px 5px 0;
+      .customBootstrap .pagination > .disabled > a,
+      .customBootstrap .pagination > .disabled > a:hover,
+      .customBootstrap .pagination > .disabled > a:focus {
+        color: #999;
+        background: #fff;
+        border-color: #ddd;
+        cursor: not-allowed;
       }
-      .customBootstrap .pagination a:hover .arrow2 {
-        border-right-color: #fff;
-      }
-      .customBootstrap .pagination .arrow3 {
-        margin: 3px 0 5px 8px;
-      }
-      .customBootstrap .pagination a:hover .arrow3 {
-        border-left-color: #fff;
-      }
+
       .pagination2 {
         height: 30px;
         margin: 10px 0;
@@ -97,6 +96,7 @@
       .pagination2 a.disabled {
         display: none;
       }
+
       .pagination4 .page a,
       .pagination4 .page a:hover {
         width: 100px;
@@ -109,27 +109,27 @@
     <script type="text/javascript" src="https://cdn.staticfile.org/jquery/3.3.1/jquery.min.js"></script>
   </head>
 
-  <body style="padding:10px;">
+  <body>
     <div class="demo">
-      <p id="demo1-text"></p>
+      <p>当前第 <span id="demo1-text"></span> 页</p>
       <ul id="demo1" class="pagination"></ul>
     </div>
     <div class="demo customBootstrap">
-      <p id="demo2-text"></p>
+      <p>当前第 <span id="demo2-text"></span> 页</p>
       <ul id="demo2" class="pagination"></ul>
     </div>
     <div class="demo">
-      <p id="demo3-text"></p>
+      <p>当前第 <span id="demo3-text"></span> 页</p>
       <div id="demo3" class="pagination2"></div>
     </div>
     <div class="demo">
-      <p id="demo4-text"></p>
+      <p>当前第 <span id="demo4-text"></span> 页</p>
       <ul id="demo4" class="pagination pagination4"></ul>
     </div>
     <div class="demo">
-      <ul class="pagination pagination-demo"></ul>
-      <p id="pagination-demo-text"></p>
-      <ul class="pagination pagination-demo"></ul>
+      <ul id="pagination-demo-top" class="pagination pagination-demo"></ul>
+      <p>当前第 <span id="pagination-demo-text"></span> 页</p>
+      <ul id="pagination-demo-bottom" class="pagination pagination-demo"></ul>
     </div>
 
     <script type="text/javascript">
@@ -143,7 +143,7 @@
         last: '<li class="last"><a href="javascript:void(0);">Last<\/a><\/li>',
         page: '<li class="page"><a href="javascript:void(0);">{{page}}<\/a><\/li>',
         onPageChange: function(n) {
-          $("#demo1-text").html("当前第" + n + "页")
+          $("#demo1-text").html(n)
         }
       })
 
@@ -152,12 +152,12 @@
         visiblePages: 10,
         currentPage: 1,
         first: '<li class="first"><a href="javascript:void(0);">首页<\/a><\/li>',
-        prev: '<li class="prev"><a href="javascript:void(0);"><i class="arrow arrow2"><\/i>上一页<\/a><\/li>',
-        next: '<li class="next"><a href="javascript:void(0);">下一页<i class="arrow arrow3"><\/i><\/a><\/li>',
+        prev: '<li class="prev"><a href="javascript:void(0);">上一页<\/a><\/li>',
+        next: '<li class="next"><a href="javascript:void(0);">下一页<\/a><\/li>',
         last: '<li class="last"><a href="javascript:void(0);">末页<\/a><\/li>',
         page: '<li class="page"><a href="javascript:void(0);">{{page}}<\/a><\/li>',
         onPageChange: function(n) {
-          $("#demo2-text").html("当前第" + n + "页")
+          $("#demo2-text").html(n)
         }
       })
 
@@ -169,7 +169,7 @@
         next: '<a class="next" href="javascript:void(0);">&gt;<\/a>',
         page: '<a href="javascript:void(0);">{{page}}<\/a>',
         onPageChange: function(n) {
-          $("#demo3-text").html("当前第" + n + "页")
+          $("#demo3-text").html(n)
         }
       })
 
@@ -181,7 +181,7 @@
         next: '<li class="next"><a href="javascript:void(0);">Next<\/a><\/li>',
         page: '<li class="page"><a href="javascript:void(0);"> {{page}} / {{totalPages}} <\/a><\/li>',
         onPageChange: function(n) {
-          $("#demo4-text").html("当前第" + n + "页")
+          $("#demo4-text").html(n)
         }
       })
 
@@ -195,7 +195,7 @@
         last: '<li class="last"><a href="javascript:void(0);">Last<\/a><\/li>',
         page: '<li class="page"><a href="javascript:void(0);">{{page}}<\/a><\/li>',
         onPageChange: function(n) {
-          $("#pagination-demo-text").html("当前第" + n + "页")
+          $("#pagination-demo-text").html(n)
         }
       })
     </script>
