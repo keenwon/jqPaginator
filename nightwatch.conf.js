@@ -11,7 +11,6 @@ module.exports = {
 
   test_settings: {
     default: {
-      launch_url: 'http://localhost:8080/',
       screenshots: {
         enabled: true,
         on_failure: true,
@@ -21,6 +20,7 @@ module.exports = {
     },
 
     chrome: {
+      launch_url: `http://localhost:${process.env.PORT}/`,
       webdriver: {
         server_path: 'node_modules/.bin/chromedriver',
         port: 9515
