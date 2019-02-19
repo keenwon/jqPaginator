@@ -32,7 +32,7 @@
     "rimraf": "^2.6.3",
     "rollup": "^1.2.1",
     "rollup-plugin-terser": "^4.0.4",
-    "webpack": "^4.29.4",
+    "webpack": "^4.29.5",
     "webpack-cli": "^3.2.3",
     "webpack-dev-server": "^3.1.14"
   },
