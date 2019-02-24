@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/node:latest
+      - image: circleci/node:latest-browsers
     working_directory: ~/repo
     environment:
       CODECOV_TOKEN: 70be8a3a-e0d9-42f3-9716-918ad198cbc1
