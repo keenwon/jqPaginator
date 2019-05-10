@@ -16,7 +16,7 @@
   "devDependencies": {
     "chromedriver": "^74.0.0",
     "codecov": "^3.3.0",
-    "elint": "^1.11.0",
+    "elint": "^1.11.1",
     "elint-preset-kw": "^1.8.1",
     "execa": "^1.0.0",
     "get-port": "^5.0.0",
