@@ -28,7 +28,7 @@
     "karma-coverage": "^2.0.1",
     "karma-jasmine": "^2.0.1",
     "karma-mocha-reporter": "^2.2.5",
-    "nightwatch": "^1.2.1",
+    "nightwatch": "^1.2.4",
     "rimraf": "^3.0.0",
     "rollup": "^1.20.3",
     "rollup-plugin-terser": "^5.1.1",
