@@ -30,7 +30,7 @@
     "karma-mocha-reporter": "^2.2.5",
     "nightwatch": "^1.2.4",
     "rimraf": "^3.0.0",
-    "rollup": "^1.25.1",
+    "rollup": "^1.26.2",
     "rollup-plugin-terser": "^5.1.2",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10",
