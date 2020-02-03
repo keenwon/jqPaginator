@@ -14,7 +14,7 @@
     "build": "rollup --config"
   },
   "devDependencies": {
-    "chromedriver": "^79.0.0",
+    "chromedriver": "^79.0.2",
     "codecov": "^3.6.3",
     "elint": "^2.0.0-alpha.3",
     "elint-preset-kw": "^1.8.1",
