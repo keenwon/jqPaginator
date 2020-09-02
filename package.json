@@ -17,7 +17,7 @@
     "chromedriver": "^85.0.0",
     "codecov": "^3.7.2",
     "elint": "^2.0.0-alpha.3",
-    "elint-preset-kw": "^1.8.1",
+    "elint-preset-kw": "^1.9.0",
     "execa": "^4.0.3",
     "get-port": "^5.1.1",
     "get-port-cli": "^2.0.0",
