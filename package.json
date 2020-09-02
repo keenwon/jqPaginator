@@ -31,7 +31,7 @@
     "nightwatch": "^1.3.7",
     "rimraf": "^3.0.2",
     "rollup": "^2.23.0",
-    "rollup-plugin-terser": "^6.1.0",
+    "rollup-plugin-terser": "^7.0.1",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0"
