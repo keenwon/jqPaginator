@@ -33,7 +33,7 @@
     "rollup": "^2.32.1",
     "rollup-plugin-terser": "^7.0.2",
     "webpack": "^4.44.2",
-    "webpack-cli": "^3.3.12",
+    "webpack-cli": "^4.1.0",
     "webpack-dev-server": "^3.11.0"
   },
   "repository": {
