@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>jqPaginator分页组件</title>
+  <link href="bootstrap.min.css" rel="stylesheet" type="text/css" media="all">
+  <link href="github.min.css" rel="stylesheet" type="text/css" media="all">
+  <style>
+    body {
+      margin-top: 0 !important;
+      padding-top: 0 !important;
+    }
+
+    .bs-navbar {
+      background-color: #3aa9ff;
+      border-color: #63b8f9
+    }
+
+    .bs-navbar .navbar-brand {
+      color: #fff
+    }
+
+    .bs-navbar .navbar-nav>li>a {
+      color: #d4eafc
+    }
+
+    .bs-head {
+      background-color: #3aa9ff;
+      text-align: left;
+      padding: 50px 0
+    }
+
+    .bs-head h1 {
+      font-size: 60px;
+      color: #fff
+    }
+
+    .bs-head .lead {
+      font-size: 30px;
+      color: #e8eeff
+    }
+
+    .bs-footer {
+      padding-top: 40px;
+      padding-bottom: 30px;
+      margin-top: 100px;
+      color: #777;
+      text-align: left;
+      border-top: 1px solid #e5e5e5
+    }
+
+    .bs-footer p {
+      margin-bottom: 0
+    }
+
+    .bs-sidebar {
+      width: 180px;
+      background-color: #f7f7f7;
+      margin-top: 30px
+    }
+
+    .bs-sidebar.affix {
+      position: fixed;
+      top: 90px
+    }
+
+    .bs-sidebar .nav>.active>a {
+      font-weight: bold;
+      background-color: transparent;
+      border-left: 1px solid #428bca
+    }
+
+    .page-header {
+      margin: 40px 0 20px
+    }
+
+    .page-header h2 {
+      padding-top: 80px;
+      margin-top: -45px
+    }
+
+    .demo {
+      padding: 20px;
+      margin: 20px 0;
+      background-color: #f7f7f7
+    }
+
+    .demo p {
+      font-size: 15px
+    }
+
+    .arrow {
+      display: inline-block;
+      overflow: hidden;
+      border-left: 5px dashed transparent;
+      border-bottom: 5px dashed transparent;
+      border-right: 5px dashed transparent;
+      border-top: 5px solid #fff;
+      vertical-align: middle
+    }
+
+    .arrow2 {
+      border-left: 5px dashed transparent;
+      border-bottom: 5px dashed transparent;
+      border-top: 5px dashed transparent;
+      border-right: 5px solid #ccc
+    }
+
+    .arrow3 {
+      border-top: 5px dashed transparent;
+      border-bottom: 5px dashed transparent;
+      border-right: 5px dashed transparent;
+      border-left: 5px solid #ccc
+    }
+
+    .customBootstrap .pagination>li>a {
+      margin-right: 5px;
+      border-radius: 2px;
+      background: #fff;
+      color: #333;
+      border-color: #ccc;
+      padding: 6px 15px
+    }
+
+    .customBootstrap .pagination>li>a:hover,
+    .customBootstrap .pagination>li>a:focus {
+      color: #fff;
+      background: #fb9400;
+      border-color: #fb9400
+    }
+
+    .customBootstrap .pagination>.active>a,
+    .customBootstrap .pagination>.active>a:hover,
+    .customBootstrap .pagination>.active>a:focus {
+      color: #fff;
+      background: #fb9400;
+      border-color: #fb9400
+    }
+
+    .customBootstrap .pagination .arrow2 {
+      margin: 3px 8px 5px 0
+    }
+
+    .customBootstrap .pagination a:hover .arrow2 {
+      border-right-color: #fff
+    }
+
+    .customBootstrap .pagination .arrow3 {
+      margin: 3px 0 5px 8px
+    }
+
+    .customBootstrap .pagination a:hover .arrow3 {
+      border-left-color: #fff
+    }
+
+    .pagination2 {
+      height: 30px;
+      margin: 10px 0
+    }
+
+    .pagination2 a {
+      text-decoration: none;
+      border: solid 1px #c0d3e6;
+      color: #333;
+      border-left-width: 0;
+      height: 24px !important
+    }
+
+    .pagination2 a {
+      height: 24px !important;
+      display: block;
+      float: left;
+      padding: 0 10px;
+      text-align: center;
+      line-height: 24px;
+      -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
+      -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
+      box-shadow: 0 1px 2px rgba(0, 0, 0, .05)
+    }
+
+    .pagination2 .active {
+      background-color: #6babdd;
+      color: #fff;
+      padding: 0 10px;
+      border: solid 1px #5c95c1
+    }
+
+    .pagination2 .prev {
+      border: solid 1px #c0d3e6
+    }
+
+    .pagination2 .next {
+      border-left-width: 0;
+      border-right-width: 1px
+    }
+
+    .pagination2 .active.prev,
+    .pagination2 .active.next {
+      color: #dcdcdc;
+      border-color: #efefef;
+      background: #fff
+    }
+
+    .pagination2 a:hover {
+      background-color: #cde4f8
+    }
+
+    .pagination2 .active:hover {
+      background-color: #6babdd
+    }
+
+    .pagination2 a.disabled {
+      display: none
+    }
+
+    .pagination4 .page a,
+    .pagination4 .page a:hover {
+      width: 100px;
+      text-align: center;
+      border: 1px solid #ddd;
+      color: #999;
+      background-color: #fff !important
+    }
+
+    pre code {
+      background-color: transparent
+    }
+  </style>
+</head>
+
+<body data-spy="scroll" data-target="#nav">
+  <header class="navbar navbar-inverse navbar-fixed-top bs-navbar" role="banner">
+    <div class="container">
+      <div class="navbar-header">
+        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a href="http://keenwon.com/jqpaginator" class="navbar-brand">jqPaginator分页组件</a>
+      </div>
+      <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+        <ul class="nav navbar-nav">
+          <li>
+            <a href="http://keenwon.com/">KeenWon首页</a>
+          </li>
+          <li>
+            <a href="https://github.com/keenwon/jqPaginator/issues">讨论&amp;反馈</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <div class="bs-head">
+    <div class="container">
+      <h1>jqPaginator</h1>
+      <p class="lead">简洁、高度自定义的jQuery分页组件，适用于多种应用场景。</p>
+      <p>
+        <a href="https://github.com/keenwon/jqPaginator/tags" target="_blank"
+          class="btn btn-default btn-lg">Download</a>
+        <a href="https://github.com/keenwon/jqPaginator" target="_blank" class="btn btn-default btn-lg">GitHub</a>
+      </p>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10" role="main">
+        <!-- 简介 -->
+        <div class="page-header">
+          <h2 id="a1">简介</h2>
+        </div>
+        <p>现在网上各种各样的分页组件很多，但是很难找到十分“称心如意”的，于是jqPaginator诞生了。</p>
+        <p>
+          我心中理想的分页组件，要不受CSS框架限制，可以使用在各种不同风格中的网页中。以我浅显的经验来看，要达到这个目标，关键的一点就是高度自定义的Html结构。所以jqPaginator努力做到合理范围内的自定义，使其灵活的使用了各种不同的场景。
+        </p>
+        <p>jqPaginator是我业余学习的成果，技术有限，Bug和不合理之处再说难免，欢迎各位大牛指正。</p>
+
+        <!-- Demo演示 -->
+        <div class="page-header">
+          <h2 id="a2">Demo演示</h2>
+        </div>
+        <h3>Bootstrap风格的分页</h3>
+        <div class="demo">
+          <p id="demo1-text">当前第1页</p>
+          <ul id="demo1" class="pagination"></ul>
+        </div>
+        <div class="demo customBootstrap">
+          <p id="demo2-text">当前第1页</p>
+          <ul id="demo2" class="pagination"></ul>
+        </div>
+        <h3>自定义风格的分页 <small>（这个网站找的，效果不是很好，大家凑合看吧，主要是想表现自定义结构）</small></h3>
+        <div class="demo">
+          <p id="demo3-text">当前第16页</p>
+          <div id="demo3" class="pagination2"></div>
+        </div>
+        <h3>极简风格的分页 <small>o(╯□╰)o 实在是没耐心写样式，继续凑合看吧!</small></h3>
+        <div class="demo">
+          <p id="demo4-text">当前第7页</p>
+          <ul id="demo4" class="pagination pagination4"></ul>
+        </div>
+        <h3>上下联动的分页</h3>
+        <div class="demo">
+          <ul class="pagination pagination-demo"></ul>
+          <p id="pagination-demo-text">当前第24页</p>
+          <ul class="pagination pagination-demo"></ul>
+        </div>
+
+        <!-- 使用说明 -->
+        <div class="page-header">
+          <h2 id="a3">使用说明</h2>
+        </div>
+        <h3>例子</h3>
+        <p>用法很简单，首先引入jQuery和jqPaginator，之后就可以初始化分页了</p>
+        <div class="highlight">
+          <pre><code class="language-js javascript">$('#id').jqPaginator({
+    totalPages: 100,
+    visiblePages: 10,
+    currentPage: 1,
+    onPageChange: function (num, type) {
+        $('#text').html('当前第' + num + '页');
+    }
+});</code></pre>
+        </div>
+        <p>上例就是第一Demo，Bootstrap风格的分页。具体参数稍后介绍，这里要了解的是，<span
+            style="color: #d14;">如果使用的不是id，而是class</span>，就会初始化该class的所有元素，实现上面“两个分页联动”的效果。</p>
+        <h3>参数</h3>
+        <table class="table table-striped table-bordered">
+          <thead>
+            <tr>
+              <th style="width:20%;">参数</th>
+              <th style="width:15%;">默认值</th>
+              <th style="width:70%;">说明</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>totalPages</th>
+              <td>0</td>
+              <td>设置分页的总页数</td>
+            </tr>
+            <tr>
+              <th>totalCounts</th>
+              <td>0</td>
+              <td>设置分页的总条目数</td>
+            </tr>
+            <tr>
+              <th>pageSize</th>
+              <td>0</td>
+              <td>设置每一页的条目数<br><span style="color: #d14;">注意</span>：要么设置totalPages，要么设置totalCounts +
+                pageSize，否则报错；设置了totalCounts和pageSize后，会自动计算出totalPages。</td>
+            </tr>
+            <tr>
+              <th>currentPage</th>
+              <td>1</td>
+              <td>设置当前的页码</td>
+            </tr>
+            <tr>
+              <th>visiblePages</th>
+              <td>7</td>
+              <td>设置最多显示的页码数（例如有100也，当前第1页，则显示1 - 7页）</td>
+            </tr>
+            <tr>
+              <th>disableClass</th>
+              <td>'disabled'</td>
+              <td>设置首页，上一页，下一页，末页的“禁用状态”样式</td>
+            </tr>
+            <tr>
+              <th>activeClass</th>
+              <td>'active'</td>
+              <td>设置当前页码样式</td>
+            </tr>
+            <tr>
+              <th>first</th>
+              <td>bootstrap风格</td>
+              <td>设置“首页”的Html结构</td>
+            </tr>
+            <tr>
+              <th>prev</th>
+              <td>bootstrap风格</td>
+              <td>设置“上一页”的Html结构</td>
+            </tr>
+            <tr>
+              <th>next</th>
+              <td>bootstrap风格</td>
+              <td>设置“下一页”的Html结构</td>
+            </tr>
+            <tr>
+              <th>last</th>
+              <td>bootstrap风格</td>
+              <td>设置“末页”的Html结构</td>
+            </tr>
+            <tr>
+              <th>page</th>
+              <td>bootstrap风格</td>
+              <td>设置页码的Html结构,其中可以使用<span style="color: #d14;">{{page}}</span>代表当前页，<span
+                  style="color: #d14;">{{totalPages}}</span>代表总页数，<span
+                  style="color: #d14;">{{totalCounts}}</span>代表总条目数（例如：上面的“极简风格”的Demo，就是使用了{{占位符}}，并将visiblePages设为1实现的。）<br><span
+                  style="color: #d14;">注意</span>：first、prev、next、last。page只要设置一个，其余未设置的会变为空。</td>
+            </tr>
+            <tr>
+              <th>wrapper</th>
+              <td>(无)</td>
+              <td>分页结构的Html包裹，例如：&lt;div class="your class"&gt;&lt;/div&gt;，一般不会用到</td>
+            </tr>
+            <tr>
+              <th>onPageChange</th>
+              <td>(无)</td>
+              <td>回调函数，当换页时触发（包括初始化第一页的时候），会传入两个参数：<br>1、“目标页"的页码，Number类型<br>2、触发类型，可能的值：“init”（初始化），“change”（点击分页）
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <h3>扩展方法</h3>
+        <p>jqPaginator提供了两个扩展方法，方便<span style="color: #d14;">初始化后</span>对组件进行操作。</p>
+        <p>&nbsp;</p>
+        <h4>$('#id').jqPaginator('option', options)</h4>
+        <p>初始化后，动态修改配置</p>
+        <div class="highlight">
+          <pre><code class="language-js ruby">$('#id').jqPaginator('option', {
+    currentPage: 1
+});</code></pre>
+        </div>
+        <p>&nbsp;</p>
+        <h4>$('#id').jqPaginator('destroy')</h4>
+        <p>销毁jqPaginator</p>
+        <div class="highlight">
+          <pre><code class="language-js ruby">$('#id').jqPaginator('destroy');</code></pre>
+        </div>
+
+        <!-- 版本说明&讨论&反馈 -->
+        <div class="page-header">
+          <h2 id="a4">版本说明&amp;讨论&amp;反馈</h2>
+        </div>
+        <p>能力有限，难免有Bug和不合理之处，欢迎大牛提意见和反馈，我会尽快响应的：<a
+            href="https://github.com/keenwon/jqPaginator/issues">https://github.com/keenwon/jqPaginator/issues</a>
+        </p>
+      </div>
+      <div class="col-md-2">
+        <div id="nav" class="bs-sidebar hidden-print affix-top" role="complementary">
+          <ul class="nav">
+            <li class="active"><a href="#a1">简介</a></li>
+            <li class=""><a href="#a2">Demo演示</a></li>
+            <li class=""><a href="#a3">使用说明</a></li>
+            <li class=""><a href="#a4">版本说明&amp;讨论&amp;反馈</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="bs-footer">
+    <div class="container">
+      <p>© keenwon.com</p>
+    </div>
+  </footer>
+
+  <script type="text/javascript" src="jquery.min.js"></script>
+  <script type="text/javascript" src="bootstrap.min.js"></script>
+  <script type="text/javascript" src="highlight.min.js"></script>
+  <script type="text/javascript" src="jqPaginator.min.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#demo1").jqPaginator({
+        totalPages: 100,
+        visiblePages: 10,
+        currentPage: 1,
+        first: '<li class="first"><a href="javascript:void(0);">First<\/a><\/li>',
+        prev: '<li class="prev"><a href="javascript:void(0);">Previous<\/a><\/li>',
+        next: '<li class="next"><a href="javascript:void(0);">Next<\/a><\/li>',
+        last: '<li class="last"><a href="javascript:void(0);">Last<\/a><\/li>',
+        page: '<li class="page"><a href="javascript:void(0);">{{page}}<\/a><\/li>',
+        onPageChange: function (n) {
+          $("#demo1-text").html("当前第" + n + "页");
+        }
+      });
+      $("#demo2").jqPaginator({
+        totalPages: 100,
+        visiblePages: 10,
+        currentPage: 1,
+        first: '<li class="first"><a href="javascript:void(0);">首页<\/a><\/li>',
+        prev: '<li class="prev"><a href="javascript:void(0);"><i class="arrow arrow2"><\/i>上一页<\/a><\/li>',
+        next: '<li class="next"><a href="javascript:void(0);">下一页<i class="arrow arrow3"><\/i><\/a><\/li>',
+        last: '<li class="last"><a href="javascript:void(0);">末页<\/a><\/li>',
+        page: '<li class="page"><a href="javascript:void(0);">{{page}}<\/a><\/li>',
+        onPageChange: function (n) {
+          $("#demo2-text").html("当前第" + n + "页");
+        }
+      });
+      $("#demo3").jqPaginator({
+        totalPages: 100,
+        visiblePages: 10,
+        currentPage: 1,
+        prev: '<a class="prev" href="javascript:void(0);">&lt;<\/a>',
+        next: '<a class="next" href="javascript:void(0);">&gt;<\/a>',
+        page: '<a href="javascript:void(0);">{{page}}<\/a>',
+        onPageChange: function (n) {
+          $("#demo3-text").html("当前第" + n + "页");
+        }
+      });
+      $("#demo4").jqPaginator({
+        totalPages: 100,
+        visiblePages: 1,
+        currentPage: 1,
+        prev: '<li class="prev"><a href="javascript:void(0);">Previous<\/a><\/li>',
+        next: '<li class="next"><a href="javascript:void(0);">Next<\/a><\/li>',
+        page: '<li class="page"><a href="javascript:void(0);"> {{page}} / {{totalPages}} <\/a><\/li>',
+        onPageChange: function (n) {
+          $("#demo4-text").html("当前第" + n + "页");
+        }
+      });
+      $(".pagination-demo").jqPaginator({
+        totalPages: 100,
+        visiblePages: 10,
+        currentPage: 1,
+        first: '<li class="first"><a href="javascript:void(0);">First<\/a><\/li>',
+        prev: '<li class="prev"><a href="javascript:void(0);">Previous<\/a><\/li>',
+        next: '<li class="next"><a href="javascript:void(0);">Next<\/a><\/li>',
+        last: '<li class="last"><a href="javascript:void(0);">Last<\/a><\/li>',
+        page: '<li class="page"><a href="javascript:void(0);">{{page}}<\/a><\/li>',
+        onPageChange: function (n) {
+          $("#pagination-demo-text").html("当前第" + n + "页");
+        }
+      });
+      setTimeout(function () {
+        var n = $(".bs-sidebar");
+        n.affix({
+          offset: {
+            top: 258
+          }
+        });
+      }, 100);
+      hljs.initHighlightingOnLoad()
+    })
+  </script>
+
+</html>
