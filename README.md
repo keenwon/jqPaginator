@@ -6,9 +6,11 @@
 [![Coverage Status][codecov-image]][codecov-url]
 [![Lgtm Alerts][lgtm-alerts-image]][lgtm-alerts-url]
 [![Lgtm Grade][lgtm-grade-image]][lgtm-grade-url]
-  
+
 [![Dependencies Status][dependencies-image]][dependencies-url]
 [![Devdependencies Status][devdependencies-image]][devdependencies-url]
+
+> 本项目大概是 14 年开源的，实际开发的时间要更早，后续出于学习的目的，加了单元测试等各种东西。虽然我早已经不在使用 jQuery 了，但项目本身运行的还是很好的，大家有问题可以提 issue，我会尽量回复。
 
 ## 使用说明
 
@@ -66,10 +68,10 @@ npm run build
 
 #### 1.1.0
 
-- onPageChange事件接受第二个参数type，表示事件类型，可能的值为:
+- onPageChange 事件接受第二个参数 type，表示事件类型，可能的值为:
   - init：初始化
   - change：点击页码
-- 内置bootstrap类型的分页，不用每次都设置first，next，page等参数。
+- 内置 bootstrap 类型的分页，不用每次都设置 first，next，page 等参数。
 
 #### 1.0.2
 
@@ -77,11 +79,11 @@ npm run build
 
 #### 1.0.1
 
-option函数优化
+option 函数优化
 
 #### 1.0.0
 
-新增spm [https://spmjs.org/keenwon/jqPaginator/](https://spmjs.org/keenwon/jqPaginator/)   
+新增 spm [https://spmjs.org/keenwon/jqPaginator/](https://spmjs.org/keenwon/jqPaginator/)  
 安装方法：
 
 ```shell
