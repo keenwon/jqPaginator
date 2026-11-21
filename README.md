@@ -2,13 +2,8 @@
 
 [![NPM Version][npm-image]][npm-url]
 [![License Status][license-image]][license-url]
-[![Build Status][circleci-image]][circleci-url]
 [![Coverage Status][codecov-image]][codecov-url]
-[![Lgtm Alerts][lgtm-alerts-image]][lgtm-alerts-url]
-[![Lgtm Grade][lgtm-grade-image]][lgtm-grade-url]
 
-[![Dependencies Status][dependencies-image]][dependencies-url]
-[![Devdependencies Status][devdependencies-image]][devdependencies-url]
 
 > 本项目大概是 14 年开源的，实际开发的时间要更早，后续出于学习的目的，加了单元测试等各种东西。虽然我早已经不在使用 jQuery 了，但项目本身运行的还是很好的，大家有问题可以提 issue，我会尽量回复。
 
